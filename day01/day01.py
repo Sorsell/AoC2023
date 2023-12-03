@@ -1,3 +1,5 @@
+import re
+
 def part1(line):
     for i in range(len(line)):
         if line[i].isdigit():
@@ -7,9 +9,12 @@ def part1(line):
                     value = value + line[i]
                     return int(value)
                 
-
-with open('day1Input.txt') as f:
+with open('day01\day01Input.txt') as f:
     lines = f.readlines()
+value = 0
+pattern = r'(?:one|two|three|four|five|six|seven|eight|nine)'
+pattern = re.compile(pattern)
+
 value = 0
 for line in lines:
     value += part1(line)
